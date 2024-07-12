@@ -130,13 +130,4 @@ project "assimp"
 
     filter "system:windows"
         defines '_CRT_SECURE_NO_WARNINGS'
-
-	filter "configurations:Debug"
-        symbols "On"
-        optimize "Off"  -- Turn off optimization for debug builds
-		runtime "Debug"
-
-    filter "configurations:Release"
-        symbols "Off"
-        optimize "Full"  -- Full optimization for release builds
-		runtime "Release"
+	filter ""
