@@ -24,6 +24,7 @@ CMakeSettings.json
 
 # Output
 bin/
+bin-obj/
 lib/
 x64/
 # QtCreator

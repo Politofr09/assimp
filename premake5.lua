@@ -9,15 +9,13 @@ project '*'
 		ignoredefaultlibraries { "libcmt.lib" }
 
 project "assimp"
+	group "Dependencies"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
 
-    targetdir ("bin/%{prj.name}")
-    objdir ("bin-obj/%{prj.name}")
-
-	warnings 'Off'
-	optimize 'Speed'
+    targetdir ("bin/%{cfg.buildcfg}")
+    objdir ("bin-obj/%{cfg.buildcfg}")
 
 	includedirs {
 		'include',
@@ -131,3 +129,15 @@ project "assimp"
     filter "system:windows"
         defines '_CRT_SECURE_NO_WARNINGS'
 	filter ""
+
+    filter "configurations:Debug"
+        symbols "On"
+        optimize "Off"  -- Turn off optimization for debug builds
+		staticruntime "on"
+        runtime "Debug"
+
+	filter "configurations:Release"
+        symbols "Off"
+        optimize "On"  -- Full optimization for release builds
+		staticruntime "off"
+        runtime "Release"
