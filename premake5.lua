@@ -8,8 +8,7 @@ project '*'
 	filter "system:windows"
 		ignoredefaultlibraries { "libcmt.lib" }
 
-project "assimp"
-	group "Dependencies"
+project "Dependencies/assimp"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
